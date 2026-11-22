@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nook: room redesign</title>
+<meta name="description" content="Take a photo of your room. Nook redesigns it in a few styles at your budget, then lets you tap any piece to buy it, honestly labelled Exact or Similar.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<style>
+  :root {
+    --bg: #F5F0E8; --surface: #FFFFFF; --surface2: #EAE2D6; --ink: #16130F; --ink2: #6B6156;
+    --accent: #C94A24; --on-accent: #FFFFFF; --exact: #1F6B4F; --hairline: #DDD3C4; --band: #16130F; --on-band: #F5F0E8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16130F; --surface: #221E19; --surface2: #2E2922; --ink: #F5F0E8; --ink2: #B5AA9C;
+      --accent: #E2582F; --on-accent: #16130F; --exact: #5FB08D; --hairline: #3A332B; --band: #221E19; --on-band: #F5F0E8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16130F; --surface: #221E19; --surface2: #2E2922; --ink: #F5F0E8; --ink2: #B5AA9C;
+    --accent: #E2582F; --on-accent: #16130F; --exact: #5FB08D; --hairline: #3A332B; --band: #221E19; --on-band: #F5F0E8;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: center; gap: 10px; padding: 20px 0; }
+  header img { width: 36px; height: 36px; border-radius: 9px; }
+  header strong { font-size: 19px; letter-spacing: -0.01em; }
+  header nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+  header nav a { color: var(--ink2); text-decoration: none; }
+  header nav a:hover { color: var(--ink); }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 40px 0 72px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 20px; font-weight: 700; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.lede { font-size: 20px; color: var(--ink2); margin: 0 0 28px; max-width: 30ch; }
+  .badge { display: inline-flex; align-items: center; background: var(--accent); color: var(--on-accent);
+    padding: 14px 22px; border-radius: 999px; font-weight: 600; font-size: 16px; }
+  .badge-note { display: block; margin-top: 12px; font-size: 14px; color: var(--ink2); }
+  .phone { width: 100%; max-width: 320px; justify-self: center; border-radius: 40px; overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(22,19,15,.4), 0 0 0 8px var(--surface); background: var(--surface); }
+  .phone img { display: block; width: 100%; height: auto; }
+
+  .band { background: var(--band); color: var(--on-band); border-radius: 28px; padding: 40px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 80px; }
+  .band .n { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .band h3 { margin: 6px 0 6px; font-size: 20px; }
+  .band p { margin: 0; color: rgba(245,240,232,.72); font-size: 16px; }
+
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 0 0 80px; }
+  .feature h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 14px; font-weight: 700; }
+  .feature p { color: var(--ink2); margin: 0 0 12px; max-width: 42ch; }
+  .labels { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .label { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+  .label.exact { background: var(--exact); color: #fff; }
+  .label.similar { border: 1.5px solid var(--ink); color: var(--ink); }
+  .feature .phone { max-width: 300px; }
+
+  .promise { border-top: 1px solid var(--hairline); padding: 40px 0 72px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .promise h3 { margin: 0 0 6px; font-size: 18px; }
+  .promise p { margin: 0; color: var(--ink2); font-size: 15px; }
+
+  footer { border-top: 1px solid var(--hairline); padding: 28px 0 40px; color: var(--ink2); font-size: 14px; }
+  footer .row { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  footer a { color: var(--ink2); }
+  footer p { margin: 12px 0 0; max-width: 70ch; }
+
+  @media (max-width: 760px) {
+    header nav { gap: 14px; font-size: 14px; }
+    .hero { grid-template-columns: 1fr; gap: 36px; padding: 16px 0 56px; }
+    .hero p.lede { font-size: 18px; }
+    .band { grid-template-columns: 1fr; padding: 28px 22px; margin-bottom: 56px; }
+    .feature { grid-template-columns: 1fr; gap: 28px; padding-bottom: 56px; }
+    .promise { grid-template-columns: 1fr; padding: 32px 0 48px; }
+    .phone { max-width: 280px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="img/icon.png" alt="">
+    <strong>Nook</strong>
+    <nav>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:hello@levelfitness.app">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Your room, <span>redesigned</span> from one photo.</h1>
+      <p class="lede">Pick a budget. Nook shows your own room in a few styles, then lets you tap any piece to buy it.</p>
+      <span class="badge">Coming soon to the App Store</span>
+      <span class="badge-note">iPhone · in testing now</span>
+    </div>
+    <div class="phone"><img src="img/4-reveal.jpg" alt="Nook's before and after slider: a plain living room on the left and the same room in a Japandi style on the right, with dots on the furniture." width="560" height="1217"></div>
+  </section>
+
+  <section class="band">
+    <div><span class="n">Step 1</span><h3>Snap the room</h3><p>One photo from a corner, phone level. Nook checks it's usable before it starts.</p></div>
+    <div><span class="n">Step 2</span><h3>Pick a style and budget</h3><p>Japandi, warm minimal, mid-century and more, at a budget you set.</p></div>
+    <div><span class="n">Step 3</span><h3>Slide to compare</h3><p>Before and after, same room, same angle. Swipe between styles.</p></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <h2>Tap anything to shop it</h2>
+      <p>Every dot is a real product with its price, size and store. The total for the whole room sits at the bottom.</p>
+      <p>We tell you how close each one is to the picture, and show cheaper look-alikes next to it.</p>
+      <div class="labels"><span class="label exact">✓ Exact match</span><span class="label similar">≈ Similar</span></div>
+    </div>
+    <div class="phone"><img src="img/5-shop.jpg" alt="A product sheet in Nook for a low three-seat sofa marked Exact match, with its price, size, a Buy button and cheaper similar options." width="560" height="1217" loading="lazy"></div>
+  </section>
+
+  <section class="promise">
+    <div><h3>Your photo, private</h3><p>Your room photo goes to our server only to create the redesign. Without an account, we don't keep it.</p></div>
+    <div><h3>No account needed</h3><p>Sign in only if you want your rooms on another phone. Delete your account, and everything we stored, in Settings.</p></div>
+    <div><h3>Honest labels</h3><p>Sizes in a picture are approximate. Measure before you buy.</p></div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <span>© 2026 Nook</span>
+      <span><a href="privacy.html">Privacy policy</a> · <a href="mailto:hello@levelfitness.app">hello@levelfitness.app</a> · <a href="../dew/">Also by us: Dew</a></span>
+    </div>
+    <p>Redesigns are AI-generated illustrations of your room. Products, prices and availability come from the stores and can change.</p>
+  </footer>
+</div>
+</body>
+</html>

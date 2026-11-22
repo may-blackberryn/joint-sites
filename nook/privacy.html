@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nook Privacy Policy</title>
+<meta name="description" content="How Nook handles your room photos, redesigns and account.">
+<link rel="icon" href="img/icon.png">
+<style>
+  :root { --bg: #F5F0E8; --surface: #FFFFFF; --ink: #16130F; --ink2: #6B6156; --accent: #C94A24; --wash: #EAE2D6; --note: #F7E9C6; --note-ink: #5C3D06; --hairline: #DDD3C4; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #16130F; --surface: #221E19; --ink: #F5F0E8; --ink2: #B5AA9C; --accent: #E2582F; --wash: #2E2922; --note: #2F2716; --note-ink: #E7BD66; --hairline: #3A332B; }
+  }
+  :root[data-theme="dark"] { --bg: #16130F; --surface: #221E19; --ink: #F5F0E8; --ink2: #B5AA9C; --accent: #E2582F; --wash: #2E2922; --note: #2F2716; --note-ink: #E7BD66; --hairline: #3A332B; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  a { color: var(--accent); }
+  .top { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .top img { width: 32px; height: 32px; border-radius: 8px; }
+  .top a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  h1 { font-size: 40px; line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 8px; font-weight: 700; }
+  .meta { color: var(--ink2); margin: 0 0 24px; font-size: 15px; }
+  .draft { background: var(--note); color: var(--note-ink); border-radius: 14px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+  .summary { background: var(--wash); border-radius: 20px; padding: 20px 24px; margin-bottom: 36px; }
+  .summary h2 { margin-top: 0; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  h2 { font-size: 22px; letter-spacing: -0.01em; margin: 36px 0 10px; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--hairline); }
+  th { color: var(--ink2); font-weight: 600; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 48px; border-top: 1px solid var(--hairline); padding-top: 20px; color: var(--ink2); font-size: 14px; }
+  footer a { color: var(--ink2); }
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><img src="img/icon.png" alt=""><a href="./">Nook</a></div>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective November 22, 2026</p>
+  <p class="draft"><strong>Draft.</strong> This policy describes how the app works today and is pending legal review.</p>
+
+  <section class="summary">
+    <h2>The short version</h2>
+    <ul>
+      <li>Your room photo is sent to our server and to AI providers only to check it and create your redesigns.</li>
+      <li>Without an account, we don't keep your photo or redesigns on our server. They live on your phone.</li>
+      <li>With an account, your rooms (photo and redesigns) are stored privately so they sync, until you delete them.</li>
+      <li>No ads, analytics or tracking. We don't sell your data.</li>
+    </ul>
+  </section>
+
+  <h2>Who we are</h2>
+  <p>Nook is an iPhone app that redesigns a photo of your room in a few styles and suggests products to buy. In this policy, "we" means the team that makes Nook. You can reach us at <a href="mailto:hello@levelfitness.app">hello@levelfitness.app</a>.</p>
+
+  <h2>What Nook collects and why</h2>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Data</th><th>Why</th><th>Where it's kept</th></tr>
+    <tr><td>Room photos you take or choose from your library</td><td>To check the photo is usable and to create redesigns</td><td>On your phone. Sent to our server for processing. Stored on our server only if you have an account.</td></tr>
+    <tr><td>Redesigns and the pieces in them</td><td>To show your rooms and the products you can buy</td><td>On your phone. Also on our server if you have an account.</td></tr>
+    <tr><td>Room details: name, type, styles, budget, pieces you own or saved</td><td>To organize and tailor your rooms</td><td>On your phone. Also on our server if you have an account.</td></tr>
+    <tr><td>Credits and whether you've used your free room</td><td>To know what you can create</td><td>On your phone. Also on our server if you have an account.</td></tr>
+    <tr><td>Account details (optional): your email, and whether you used Apple or email to sign in</td><td>To sign you in and sync your rooms</td><td>Our server</td></tr>
+    <tr><td>Purchases</td><td>To unlock rooms and subscriptions</td><td>Handled by Apple. If you're signed in, your purchase is linked to your account id.</td></tr>
+  </table>
+  </div>
+
+  <h2>How redesigns are made</h2>
+  <p>When you add a room, Nook sends the photo over an encrypted connection to our server.</p>
+  <ul>
+    <li>An AI model from <strong>Anthropic</strong> (Claude) checks that the photo shows a room clearly.</li>
+    <li>An image model from <strong>OpenAI</strong> uses your photo to create each redesign.</li>
+    <li>Anthropic then looks at the redesign (not your original photo) to list the pieces in it, so we can find matching products.</li>
+  </ul>
+  <p>These providers process the data for us as service providers under their commercial terms, which don't allow them to train their models on it. Like most providers, they may keep requests for a limited time for safety and abuse monitoring. Our server itself doesn't save your photo while it processes it.</p>
+  <p>Redesigns are AI-generated illustrations. Sizes are approximate, and products, prices and availability come from the stores.</p>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li>We don't sell your data or share it for advertising.</li>
+    <li>We don't use advertising identifiers, analytics or tracking tools.</li>
+    <li>We don't use your photos for anything other than your redesigns.</li>
+  </ul>
+
+  <h2>On your phone</h2>
+  <p>Your rooms are stored in Nook's private space on your iPhone, protected by iOS file protection, and are excluded from iCloud and device backups. Reminders are local notifications from your phone; we don't send push messages.</p>
+
+  <h2>Who we share data with</h2>
+  <ul>
+    <li><strong>Anthropic</strong> and <strong>OpenAI</strong>, to check photos and create redesigns, as described above.</li>
+    <li><strong>Supabase</strong>, which hosts our server and, if you have an account, stores your account, rooms and images in private storage.</li>
+    <li><strong>Apple</strong>, for Sign in with Apple and in-app purchases.</li>
+    <li>Authorities, only if the law requires it.</li>
+  </ul>
+  <p>When you tap a product, it opens the store's website (for example Amazon), which has its own privacy policy. We don't send them your photo.</p>
+
+  <h2>How long we keep data</h2>
+  <ul>
+    <li><strong>Without an account:</strong> nothing about your rooms is kept on our server.</li>
+    <li><strong>With an account:</strong> your rooms, photos and redesigns are kept until you delete the room, delete your data, or delete your account. Replaced redesigns are removed.</li>
+    <li><strong>Server logs:</strong> request ids, styles, timings and outcomes, never photos. Kept only as long as our hosting provider retains logs.</li>
+  </ul>
+
+  <h2>Your choices and rights</h2>
+  <ul>
+    <li><strong>Delete my data:</strong> Settings → Delete my data removes your rooms from your phone, and from our server if you're signed in.</li>
+    <li><strong>Delete your account:</strong> Settings → Account → Delete account removes your account and all stored photos, redesigns and room data.</li>
+    <li><strong>Access or correct:</strong> email us and we'll help.</li>
+  </ul>
+  <p>Depending on where you live (for example California, the EU or UK, or Mexico), you may have rights to access, correct, delete or object to the use of your data. Email <a href="mailto:hello@levelfitness.app">hello@levelfitness.app</a> and we'll respond within the time the law requires.</p>
+
+  <h2>Children</h2>
+  <p>Nook isn't meant for children under 13, and we don't knowingly collect their data. If you think a child has used Nook, email us and we'll delete it.</p>
+
+  <h2>Changes</h2>
+  <p>If we change this policy, we'll update the date at the top and, for important changes, tell you in the app.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:hello@levelfitness.app">hello@levelfitness.app</a></p>
+
+  <footer><a href="./">Nook home</a> · <a href="../dew/privacy.html">Dew privacy policy</a></footer>
+</main>
+</body>
+</html>

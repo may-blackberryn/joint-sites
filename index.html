@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dew and Nook</title>
+<meta name="description" content="Two small iPhone apps: Dew, a skin scan, and Nook, a room redesign.">
+<style>
+  :root { --bg: #F4EFE8; --surface: #FFFFFF; --ink: #1B1916; --ink2: #5E5750; --hairline: #E4DCD1; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #141210; --surface: #1F1C19; --ink: #F3EEE7; --ink2: #B3AAA0; --hairline: #302B27; }
+  }
+  :root[data-theme="dark"] { --bg: #141210; --surface: #1F1C19; --ink: #F3EEE7; --ink2: #B3AAA0; --hairline: #302B27; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 72px 16px 48px; }
+  h1 { font-size: 36px; letter-spacing: -0.02em; margin: 0 0 8px; }
+  p.lede { color: var(--ink2); margin: 0 0 36px; }
+  .apps { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  a.app { display: flex; gap: 16px; align-items: center; background: var(--surface); border-radius: 24px; padding: 20px;
+    color: var(--ink); text-decoration: none; border: 1px solid var(--hairline); }
+  a.app:hover { border-color: var(--ink2); }
+  a.app img { width: 64px; height: 64px; border-radius: 15px; flex: none; }
+  a.app strong { display: block; font-size: 20px; }
+  a.app span { color: var(--ink2); font-size: 15px; }
+  footer { margin-top: 48px; color: var(--ink2); font-size: 14px; }
+  footer a { color: var(--ink2); }
+  @media (max-width: 560px) { .apps { grid-template-columns: 1fr; } main { padding-top: 48px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Dew and Nook</h1>
+  <p class="lede">Two small iPhone apps that each do one thing well.</p>
+  <div class="apps">
+    <a class="app" href="dew/"><img src="dew/img/icon.png" alt=""><div><strong>Dew</strong><span>One selfie, your skin mapped, a routine with reasons.</span></div></a>
+    <a class="app" href="nook/"><img src="nook/img/icon.png" alt=""><div><strong>Nook</strong><span>Your room redesigned from one photo, ready to shop.</span></div></a>
+  </div>
+  <footer>Contact: <a href="mailto:hello@levelfitness.app">hello@levelfitness.app</a></footer>
+</main>
+</body>
+</html>

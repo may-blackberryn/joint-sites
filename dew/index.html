@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dew: skin scan</title>
+<meta name="description" content="Dew looks at one selfie, pins what it notices on your own face, and gives you a short routine with the reason for each product. Rescan weekly to see what changes.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<style>
+  :root {
+    --bg: #F4EFE8; --surface: #FFFFFF; --surface2: #EBE4DA; --ink: #1B1916; --ink2: #5E5750;
+    --primary: #1F4A3D; --on-primary: #FFFFFF; --wash: #EEF3F0; --pin: #F2875A; --hairline: #EDE7DF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141210; --surface: #1F1C19; --surface2: #2C2824; --ink: #F3EEE7; --ink2: #B3AAA0;
+      --primary: #8FC1A6; --on-primary: #0F231B; --wash: #1D2A24; --hairline: #302B27;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141210; --surface: #1F1C19; --surface2: #2C2824; --ink: #F3EEE7; --ink2: #B3AAA0;
+    --primary: #8FC1A6; --on-primary: #0F231B; --wash: #1D2A24; --hairline: #302B27;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  }
+  .serif { font-family: ui-serif, "New York", "Iowan Old Style", Georgia, serif; }
+  a { color: var(--primary); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: center; gap: 10px; padding: 20px 0; }
+  header img { width: 36px; height: 36px; border-radius: 9px; }
+  header strong { font-size: 19px; letter-spacing: -0.01em; }
+  header nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+  header nav a { color: var(--ink2); text-decoration: none; }
+  header nav a:hover { color: var(--ink); }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 40px 0 72px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 20px; font-weight: 600; }
+  .hero h1 em { font-style: normal; color: var(--primary); }
+  .hero p.lede { font-size: 20px; color: var(--ink2); margin: 0 0 28px; max-width: 30ch; }
+  .badge { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: var(--on-primary);
+    padding: 14px 22px; border-radius: 999px; font-weight: 600; font-size: 16px; }
+  .badge-note { display: block; margin-top: 12px; font-size: 14px; color: var(--ink2); }
+  .phone { width: 100%; max-width: 320px; justify-self: center; border-radius: 40px; overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(27,25,22,.35), 0 0 0 8px var(--surface); background: var(--surface); }
+  .phone img { display: block; width: 100%; height: auto; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 0 80px; }
+  .step { background: var(--surface); border-radius: 24px; padding: 28px; }
+  .step .n { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--pin); color: #1B1916; font-weight: 700; font-size: 15px; margin-bottom: 14px; }
+  .step h3 { margin: 0 0 6px; font-size: 20px; }
+  .step p { margin: 0; color: var(--ink2); font-size: 16px; }
+
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 24px 0 80px; }
+  .feature.flip .copy { order: 2; }
+  .feature h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 14px; font-weight: 600; }
+  .feature p { color: var(--ink2); margin: 0 0 12px; max-width: 42ch; }
+  .feature .phone { max-width: 300px; }
+
+  .promise { background: var(--wash); border-radius: 28px; padding: 40px; margin-bottom: 80px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .promise h3 { margin: 0 0 6px; font-size: 18px; }
+  .promise p { margin: 0; color: var(--ink2); font-size: 15px; }
+
+  footer { border-top: 1px solid var(--hairline); padding: 28px 0 40px; color: var(--ink2); font-size: 14px; }
+  footer .row { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  footer a { color: var(--ink2); }
+  footer p { margin: 12px 0 0; max-width: 70ch; }
+
+  @media (max-width: 760px) {
+    header nav { gap: 14px; font-size: 14px; }
+    .hero { grid-template-columns: 1fr; gap: 36px; padding: 16px 0 56px; }
+    .hero p.lede { font-size: 18px; }
+    .steps { grid-template-columns: 1fr; padding-bottom: 56px; }
+    .feature, .feature.flip { grid-template-columns: 1fr; gap: 28px; padding-bottom: 56px; }
+    .feature.flip .copy { order: 0; }
+    .promise { grid-template-columns: 1fr; padding: 28px 22px; margin-bottom: 56px; }
+    .phone { max-width: 280px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="img/icon.png" alt="">
+    <strong class="serif">Dew</strong>
+    <nav>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:hello@levelfitness.app">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1 class="serif">One selfie. <em>Your</em> skin, mapped.</h1>
+      <p class="lede">Dew notices what's on your skin, pins it on your own face, and builds a short routine that says why each product is there.</p>
+      <span class="badge">Coming soon to the App Store</span>
+      <span class="badge-note">iPhone · in testing now</span>
+    </div>
+    <div class="phone"><img src="img/05-reveal.jpg" alt="Dew showing three things it noticed, pinned on a face: dark marks on the cheeks, blemishes on the chin and visible pores on the nose." width="560" height="1217"></div>
+  </section>
+
+  <section class="steps">
+    <div class="step"><span class="n">1</span><h3>Scan</h3><p>Hold your phone at arm's length. Dew waits for good light and a straight angle, then takes the photo.</p></div>
+    <div class="step"><span class="n">2</span><h3>See what it noticed</h3><p>Up to six things, like dark marks or shine, pinned where they are, with how sure it is.</p></div>
+    <div class="step"><span class="n">3</span><h3>Get a short routine</h3><p>Morning and evening, three or four products, each tagged with the finding it's for.</p></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <h2 class="serif">A routine with reasons</h2>
+      <p>No twelve-step shelf. Each product is there for something Dew actually saw: cleanse, treat, moisturize, protect.</p>
+      <p>Already have something similar? Say so, and Dew works around it.</p>
+    </div>
+    <div class="phone"><img src="img/08-routine.jpg" alt="Dew's evening routine: a cleanser, an azelaic acid treatment and a moisturizer, each labelled with the findings it targets." width="560" height="1217" loading="lazy"></div>
+  </section>
+
+  <section class="feature flip">
+    <div class="copy">
+      <h2 class="serif">Rescan weekly. See what changes.</h2>
+      <p>Same framing, same light check, side by side. Dew tells you what looks lighter, what's the same, and when it can't tell.</p>
+      <p>Log dairy, sleep, sauna or a new product if you like, and Dew points out patterns, honestly labelled as patterns, not proof.</p>
+    </div>
+    <div class="phone"><img src="img/checkins-patterns-light.jpg" alt="Dew's Progress screen with pattern cards, such as redness being lower in weeks with less dairy." width="560" height="1217" loading="lazy"></div>
+  </section>
+
+  <section class="promise">
+    <div><h3>Your photos stay on your phone</h3><p>Photos go to our server only to be analyzed or compared, and are never stored there.</p></div>
+    <div><h3>No account needed</h3><p>Sign in only if you want your results on another phone. Photos never sync.</p></div>
+    <div><h3>Cosmetic, not medical</h3><p>Dew describes what's visible. If a spot is changing, painful or won't heal, see a dermatologist.</p></div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <span>© 2026 Dew</span>
+      <span><a href="privacy.html">Privacy policy</a> · <a href="mailto:hello@levelfitness.app">hello@levelfitness.app</a> · <a href="../nook/">Also by us: Nook</a></span>
+    </div>
+    <p>Dew gives cosmetic skin observations and product suggestions. It is not a medical device and does not give medical advice.</p>
+  </footer>
+</div>
+</body>
+</html>
