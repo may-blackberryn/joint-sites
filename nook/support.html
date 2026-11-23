@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nook Support</title>
+<meta name="description" content="Help with Nook: room photos, redesigns, Exact and Similar labels, purchases, your data and how to contact us.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<style>
+  :root { --bg: #F5F0E8; --surface: #FFFFFF; --ink: #16130F; --ink2: #6B6156; --accent: #C94A24; --wash: #EAE2D6; --note: #F7E9C6; --note-ink: #5C3D06; --hairline: #DDD3C4; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #16130F; --surface: #221E19; --ink: #F5F0E8; --ink2: #B5AA9C; --accent: #E2582F; --wash: #2E2922; --note: #2F2716; --note-ink: #E7BD66; --hairline: #3A332B; }
+  }
+  :root[data-theme="dark"] { --bg: #16130F; --surface: #221E19; --ink: #F5F0E8; --ink2: #B5AA9C; --accent: #E2582F; --wash: #2E2922; --note: #2F2716; --note-ink: #E7BD66; --hairline: #3A332B; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  a { color: var(--accent); }
+  .top { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .top img { width: 32px; height: 32px; border-radius: 8px; }
+  .top a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  h1 { font-size: 40px; line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 8px; font-weight: 700; }
+  .meta { color: var(--ink2); margin: 0 0 24px; font-size: 15px; }
+  .draft { background: var(--note); color: var(--note-ink); border-radius: 14px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+  .summary { background: var(--wash); border-radius: 20px; padding: 20px 24px; margin-bottom: 36px; }
+  .summary h2 { margin-top: 0; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  h2 { font-size: 22px; letter-spacing: -0.01em; margin: 36px 0 10px; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--hairline); }
+  th { color: var(--ink2); font-weight: 600; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 48px; border-top: 1px solid var(--hairline); padding-top: 20px; color: var(--ink2); font-size: 14px; }
+  footer a { color: var(--ink2); }
+  .contact { background: var(--surface); border: 1px solid var(--hairline); border-radius: 20px; padding: 20px 24px; margin: 8px 0 36px; }
+  .contact p { margin: 0 0 6px; }
+  .contact .mail { font-size: 20px; font-weight: 600; }
+  details { background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px; padding: 14px 18px; margin: 10px 0; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--ink2); font-weight: 400; font-size: 22px; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details[open] summary { margin-bottom: 8px; }
+  details p { margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><img src="img/icon.png" alt=""><a href="./">Nook</a></div>
+
+  <h1>Support</h1>
+  <p class="meta">Questions, problems or ideas? We read every email.</p>
+
+  <section class="contact">
+    <p>Email us at</p>
+    <p class="mail"><a href="mailto:hello@levelfitness.app?subject=Nook%20support">hello@levelfitness.app</a></p>
+    <p class="meta" style="margin:8px 0 0">Tell us your iPhone model, iOS version and what happened. We usually reply within two business days.</p>
+  </section>
+
+  <h2>Common questions</h2>
+  <details>
+    <summary>The photo check says my photo won't work</summary>
+    <p>Nook needs a clear, bright photo of a whole room: a living room, bedroom, dining room or home office. Step back to fit more of the room, turn on the lights or open the curtains, and keep people out of the shot. Kitchens and bathrooms aren't supported yet.</p>
+  </details>
+  <details>
+    <summary>How long does a redesign take?</summary>
+    <p>Usually about 20 seconds per style, and your styles are made at the same time. You need an internet connection. If a style fails, trying again is free.</p>
+  </details>
+  <details>
+    <summary>What do Exact and Similar mean?</summary>
+    <p><strong>Exact</strong> means the product is the same piece you see in the redesign. <strong>Similar</strong> means it's a close match from a store, not the identical piece. Nook always labels which one it is.</p>
+  </details>
+  <details>
+    <summary>Are the redesigns real photos?</summary>
+    <p>No. Redesigns are AI-generated illustrations based on your photo. Sizes are approximate, and products, prices and availability come from the stores.</p>
+  </details>
+  <details>
+    <summary>How do I cancel or manage my subscription?</summary>
+    <p>Subscriptions are handled by Apple. Open the Settings app → your name → Subscriptions → Nook. Cancel at least 24 hours before the renewal date to avoid being charged.</p>
+  </details>
+  <details>
+    <summary>I bought a room or a subscription but it didn't unlock</summary>
+    <p>In Nook, open Settings and tap Restore purchases while signed in to the same Apple Account you used to buy. If it still doesn't unlock, email us and tell us what you bought and when.</p>
+  </details>
+  <details>
+    <summary>Do I need an account?</summary>
+    <p>No. Without an account your rooms live only on your phone and nothing is kept on our server. Signing in (Apple or an email code, from Settings → Account) keeps your rooms, photos and redesigns privately so they sync to your other phones.</p>
+  </details>
+  <details>
+    <summary>How do I delete my rooms, data or account?</summary>
+    <p>Long-press a room to delete it. Settings → Delete my data removes your rooms from your phone, and from our server if you're signed in. Settings → Account → Delete account removes your account and everything stored with it.</p>
+  </details>
+  <details>
+    <summary>Where do my photos go?</summary>
+    <p>Your room photo is sent to our server and AI providers only to check it and create your redesigns. Details are in the <a href="privacy.html">privacy policy</a>.</p>
+  </details>
+
+  <footer><a href="./">Nook home</a> · <a href="privacy.html">Privacy policy</a> · <a href="../dew/support.html">Dew support</a></footer>
+</main>
+</body>
+</html>

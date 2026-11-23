@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dew Support</title>
+<meta name="description" content="Help with Dew: scanning, results, subscriptions, your data and how to contact us.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<style>
+  :root { --bg: #F4EFE8; --surface: #FFFFFF; --ink: #1B1916; --ink2: #5E5750; --primary: #1F4A3D; --wash: #EEF3F0; --note: #F7E9C6; --note-ink: #5C3D06; --hairline: #E4DCD1; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #141210; --surface: #1F1C19; --ink: #F3EEE7; --ink2: #B3AAA0; --primary: #8FC1A6; --wash: #1D2A24; --note: #2F2716; --note-ink: #E7BD66; --hairline: #302B27; }
+  }
+  :root[data-theme="dark"] { --bg: #141210; --surface: #1F1C19; --ink: #F3EEE7; --ink2: #B3AAA0; --primary: #8FC1A6; --wash: #1D2A24; --note: #2F2716; --note-ink: #E7BD66; --hairline: #302B27; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  a { color: var(--primary); }
+  .top { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .top img { width: 32px; height: 32px; border-radius: 8px; }
+  .top a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 8px; font-weight: 600; }
+  .meta { color: var(--ink2); margin: 0 0 24px; font-size: 15px; }
+  .draft { background: var(--note); color: var(--note-ink); border-radius: 14px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+  .summary { background: var(--wash); border-radius: 20px; padding: 20px 24px; margin-bottom: 36px; }
+  .summary h2 { margin-top: 0; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  h2 { font-size: 22px; letter-spacing: -0.01em; margin: 36px 0 10px; }
+  h3 { font-size: 18px; margin: 24px 0 6px; }
+  p, li { color: var(--ink); }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--hairline); }
+  th { color: var(--ink2); font-weight: 600; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 48px; border-top: 1px solid var(--hairline); padding-top: 20px; color: var(--ink2); font-size: 14px; }
+  footer a { color: var(--ink2); }
+  .contact { background: var(--surface); border: 1px solid var(--hairline); border-radius: 20px; padding: 20px 24px; margin: 8px 0 36px; }
+  .contact p { margin: 0 0 6px; }
+  .contact .mail { font-size: 20px; font-weight: 600; }
+  details { background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px; padding: 14px 18px; margin: 10px 0; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--ink2); font-weight: 400; font-size: 22px; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details[open] summary { margin-bottom: 8px; }
+  details p { margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><img src="img/icon.png" alt=""><a href="./">Dew</a></div>
+
+  <h1>Support</h1>
+  <p class="meta">Questions, problems or ideas? We read every email.</p>
+
+  <section class="contact">
+    <p>Email us at</p>
+    <p class="mail"><a href="mailto:hello@levelfitness.app?subject=Dew%20support">hello@levelfitness.app</a></p>
+    <p class="meta" style="margin:8px 0 0">Tell us your iPhone model, iOS version and what happened. We usually reply within two business days.</p>
+  </section>
+
+  <h2>Common questions</h2>
+  <details>
+    <summary>The scan won't take the photo</summary>
+    <p>Dew waits for even light, a straight angle and the right distance. Face a window or a soft lamp, hold the phone at arm's length at eye level, and keep still. Take off glasses and pull hair back if you can. After a few seconds a shutter button appears so you can take it yourself, and you can always choose a photo from your library.</p>
+  </details>
+  <details>
+    <summary>It says it couldn't tell, or the photo isn't clear</summary>
+    <p>When Dew isn't sure, it says so instead of guessing. Try again in brighter, even light without strong shadows on one side. A failed scan never uses up your free scan.</p>
+  </details>
+  <details>
+    <summary>Is Dew medical advice?</summary>
+    <p>No. Dew describes cosmetic, visible skin characteristics and suggests skincare products. It doesn't diagnose anything. If a spot is changing, painful, bleeding or won't heal, see a dermatologist.</p>
+  </details>
+  <details>
+    <summary>Where do my photos go?</summary>
+    <p>Your photos stay on your iPhone. They're sent to our server only to be analyzed or compared, are never stored there, and never sync to an account. Details are in the <a href="privacy.html">privacy policy</a>.</p>
+  </details>
+  <details>
+    <summary>How do I cancel or manage my subscription?</summary>
+    <p>Subscriptions are handled by Apple. Open the Settings app → your name → Subscriptions → Dew, or in Dew go to Settings → Dew subscription → Manage. Cancel at least 24 hours before the renewal date to avoid being charged.</p>
+  </details>
+  <details>
+    <summary>I paid but my routine is still locked</summary>
+    <p>In Dew, open Settings and tap Restore purchases. Make sure you're signed in to the same Apple Account you used to buy. If it still doesn't unlock, email us a screenshot of Settings → Dew subscription.</p>
+  </details>
+  <details>
+    <summary>Do I need an account?</summary>
+    <p>No. An account is optional and only syncs your results, check-ins and settings to another phone. Photos never sync. Sign in with Apple or an email code from Settings → Account.</p>
+  </details>
+  <details>
+    <summary>How do I delete my data or my account?</summary>
+    <p>Settings → Delete everything removes your photos and data from your phone, and from our server if you're signed in. Settings → Account → Delete account removes your account and everything synced to it.</p>
+  </details>
+  <details>
+    <summary>Product links don't open or a product is out of stock</summary>
+    <p>Links open the store's website in Safari. If a product isn't available, Dew offers the next best match. Prices shown are typical prices; the store's price may differ.</p>
+  </details>
+
+  <footer><a href="./">Dew home</a> · <a href="privacy.html">Privacy policy</a> · <a href="../nook/support.html">Nook support</a></footer>
+</main>
+</body>
+</html>
